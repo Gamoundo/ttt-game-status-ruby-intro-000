@@ -93,7 +93,7 @@ def winner(board)
 # if there is a winner return the first thing in winning array
 if won?(board) == true
   win = won?(board)
-  return board[win[0]]
+  p board[win[0]]
 end
 nil
 end
