@@ -16,6 +16,7 @@ WIN_COMBINATIONS = [
 
 ]
 
+
 def won?(board)
  x_array = []
  o_array= []
@@ -39,13 +40,16 @@ end
     false
   end
 end
+
 end
+return false
 end
 
 def draw?(board)
+  draw = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
   if won?(board) == true
     return false
-  elsif won?(board) == false && turn_count(board) == 9
+  elsif board == draw
     return true
   else
     return false
@@ -64,3 +68,32 @@ end
 return turns
 end
     end
+
+def full?(board)
+  if draw?(board) == true
+  return  true
+  else
+    false
+  end
+end
+
+def over?(board)
+if draw?(board) == true
+return  true
+
+elsif won?(board) == false && full?(board) == false
+  return  false
+  else
+    return true
+  end
+
+end
+
+def winner(board)
+# if there is a winner return the first thing in winning array
+if won?(board) == true
+  return win[0]
+else
+  nil
+end
+end
